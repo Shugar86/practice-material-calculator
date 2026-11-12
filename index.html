@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ИнфоДон · Материалы пачками</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header class="top">
+        <span class="tag">ИнфоДон / Практика 04</span
+        ><a href="README.md">Задание ↗</a>
+      </header>
+      <h1>Материалы пачками</h1>
+      <p>
+        Два материала продаются целыми пачками. Покупателю нужно утеплить 23 м².
+        Что выгоднее с учётом запаса и округления?
+      </p>
+      <section class="box">
+        <h2>Учебный каталог</h2>
+        <ul class="grid" id="materials"></ul>
+        <p class="note">
+          Данные для вашей версии виджета — в <code>materials.js</code>. Цены
+          указаны за пачку.
+        </p>
+      </section>
+      <script src="materials.js"></script>
+      <script>
+        const list = document.querySelector("#materials");
+        for (const item of window.materials) {
+          const card = document.createElement("li"),
+            name = document.createElement("strong"),
+            detail = document.createElement("small");
+          name.textContent = item.name;
+          detail.textContent =
+            item.areaPerPackM2.toLocaleString("ru-RU") +
+            " м² / пачка · " +
+            item.pricePerPackRub.toLocaleString("ru-RU") +
+            " ₽";
+          card.append(name, detail);
+          list.append(card);
+        }
+      </script>
+      <p class="note">
+        Материалы готовы. Теперь ваша очередь: выберите, как будет устроен
+        интерфейс, и пройдите сценарии из README.
+      </p>
+    </main>
+  </body>
+</html>
